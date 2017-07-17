@@ -4,7 +4,7 @@ import React from 'react';
 // import config from '../../../../config';
 
 function HomeRoute() {
-  return <div>some</div>
+  return <div>some</div>;
 }
 
 export default HomeRoute;
