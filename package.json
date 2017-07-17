@@ -43,23 +43,6 @@
       "<rootDir>/(build|internal|node_modules|flow-typed|public)/"
     ]
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ctrlplusb/react-universally.git"
-  },
-  "keywords": [
-    "react",
-    "boilerplate",
-    "starter kit",
-    "universal",
-    "javascript",
-    "express",
-    "webpack"
-  ],
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/ctrlplusb/react-universally/issues"
-  },
   "homepage": "https://github.com/ctrlplusb/react-universally#readme",
   "dependencies": {
     "@types/compression": "0.0.33",
@@ -120,9 +103,9 @@
     "glob": "7.1.2",
     "happypack": "3.0.3",
     "html-webpack-plugin": "2.29.0",
-    "husky": "0.14.3",
+    "husky": "^0.14.3",
     "jest": "20.0.4",
-    "lint-staged": "4.0.1",
+    "lint-staged": "^4.0.1",
     "md5": "2.2.1",
     "modernizr-loader": "1.0.1",
     "node-notifier": "5.1.2",
