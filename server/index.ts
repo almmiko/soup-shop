@@ -16,7 +16,7 @@ import config from '../config';
 const app = express();
 
 // Don't expose any software information to potential hackers.
-app.disable('x-powered-by');
+app.disable("x-powered-by");
 
 // Security middlewares.
 app.use(...security);
