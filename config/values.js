@@ -92,13 +92,11 @@ const values = {
       // Allow scripts from cdn.polyfill.io so that we can import the
       // polyfill.
       'cdn.polyfill.io',
-      'cdn.jsdelivr.net', // graphiql
       "'unsafe-inline'",
     ],
     styleSrc: [
       'cdn.rawgit.com/milligram/milligram/master/dist/milligram.min.css',
       'fonts.googleapis.com/css',
-      'cdn.jsdelivr.net', //graphiql
     ],
   },
 
