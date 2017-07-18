@@ -4,6 +4,7 @@ import compression from 'compression';
 import { resolve as pathResolve } from 'path';
 import appRootDir from 'app-root-dir';
 import graphqlHTTP from 'express-graphql';
+import uuid from 'uuid';
 
 import reactApplication from './middleware/reactApplication';
 import security from './middleware/security';
@@ -21,7 +22,19 @@ const app = express();
 app.disable('x-powered-by');
 
 // Security middlewares.
-app.use(...security);
+// TODO error with graphiql and using security middleware
+/// Need better way to fix this ///////////
+if (process.env.NODE_ENV === 'development') {
+  app.use((req, res, next) => {
+    res.locals.nonce = uuid.v4();
+    next();
+  });
+}
+
+if (process.env.NODE_ENV === 'production') {
+  app.use(...security);
+}
+//////////////////////////////////////////
 
 // Gzip compress the responses.
 app.use(compression());
