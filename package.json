@@ -1,7 +1,7 @@
 {
-  "name": "react-universally",
-  "version": "13.0.0",
-  "description": "A starter kit for universal react applications.",
+  "name": "soup-shop-project",
+  "version": "1.0.0",
+  "description": "Soup shop - example project with graphql, typescript, apollo client, react usage",
   "main": "build/server/index.js",
   "engines": {
     "node": ">=6"
@@ -44,7 +44,6 @@
       "<rootDir>/(build|internal|node_modules|flow-typed|public)/"
     ]
   },
-  "homepage": "https://github.com/ctrlplusb/react-universally#readme",
   "dependencies": {
     "@types/compression": "0.0.33",
     "@types/express": "^4.0.36",
