@@ -73,7 +73,8 @@ const values = {
   htmlPage: {
     titleTemplate: 'React, Universally - %s',
     defaultTitle: 'React, Universally',
-    description: 'A starter kit giving you the minimum requirements for a production ready universal react application.',
+    description:
+      'A starter kit giving you the minimum requirements for a production ready universal react application.',
   },
 
   // Content Security Policy (CSP)
@@ -210,13 +211,7 @@ const values = {
         // NOTE: It is also possible that some modules require specific
         // webpack loaders in order to be processed (e.g. CSS/SASS etc).
         // For these cases you don't want to include them in the Vendor DLL.
-        include: [
-          'react-async-component',
-          'react',
-          'react-dom',
-          'react-helmet',
-          'react-router-dom',
-        ],
+        include: ['react', 'react-dom', 'react-helmet', 'react-router-dom'],
 
         // The name of the vendor DLL.
         name: '__dev_vendor_dll__',
