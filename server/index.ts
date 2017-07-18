@@ -3,6 +3,8 @@ import express from 'express';
 import compression from 'compression';
 import { resolve as pathResolve } from 'path';
 import appRootDir from 'app-root-dir';
+import graphqlHTTP from 'express-graphql';
+
 import reactApplication from './middleware/reactApplication';
 import security from './middleware/security';
 import clientBundle from './middleware/clientBundle';
@@ -10,6 +12,7 @@ import serviceWorker from './middleware/serviceWorker';
 import offlinePage from './middleware/offlinePage';
 import errorHandlers from './middleware/errorHandlers';
 import config from '../config';
+import schema from './graphql/schema/schema';
 
 // Create our express based server.
 const app = express();
@@ -46,6 +49,15 @@ app.use(config('bundles.client.webPath'), clientBundle);
 // Note: these will be served off the root (i.e. '/') of our application.
 app.use(
   express.static(pathResolve(appRootDir.get(), config('publicAssetsPath')))
+);
+
+app.use(
+  '/graphql',
+  graphqlHTTP({
+    schema,
+    graphiql: true,
+    pretty: true,
+  })
 );
 
 // The React application middleware.
