@@ -20,6 +20,9 @@ import * as EnvVars from '../config/utils/envVars';
 import config from '../config';
 import schema from './graphql/schema/schema';
 
+// Expose Models
+import './models';
+
 // Create our express based server.
 const app = express();
 
