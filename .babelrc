@@ -9,6 +9,7 @@
   "presets": [
     ["env", { "targets": { "node": true } }],
     "stage-3",
-    "react"
+    "react",
+    "flow"
   ]
 }

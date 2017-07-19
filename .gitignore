@@ -33,11 +33,9 @@ npm-debug.log
 .vscode
 .history
 
-# flow-typed Lib Defs
-flow-typed/
-
-# Flow Coverage Report
+# flow
 flow-coverage/
+flow-typed/npm
 
 # Happypack
 .happypack
