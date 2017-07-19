@@ -49,6 +49,7 @@
   },
   "dependencies": {
     "app-root-dir": "1.0.2",
+    "chalk": "^2.0.1",
     "colors": "1.1.2",
     "compression": "1.6.2",
     "cross-env": "5.0.1",
@@ -59,6 +60,7 @@
     "helmet": "3.6.1",
     "hpp": "0.2.2",
     "modernizr": "3.5.0",
+    "mongoose": "^4.11.3",
     "normalize.css": "6.0.0",
     "offline-plugin": "4.8.1",
     "prop-types": "15.5.10",

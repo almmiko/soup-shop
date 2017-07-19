@@ -1,4 +1,5 @@
 // @flow
+/* eslint-disable no-console */
 
 import express from 'express';
 import compression from 'compression';
@@ -6,6 +7,8 @@ import { resolve as pathResolve } from 'path';
 import appRootDir from 'app-root-dir';
 import graphqlHTTP from 'express-graphql';
 import uuid from 'uuid';
+import mongoose from 'mongoose';
+import chalk from 'chalk';
 
 import reactApplication from './middleware/reactApplication';
 import security from './middleware/security';
@@ -13,6 +16,7 @@ import clientBundle from './middleware/clientBundle';
 import serviceWorker from './middleware/serviceWorker';
 import offlinePage from './middleware/offlinePage';
 import errorHandlers from './middleware/errorHandlers';
+import * as EnvVars from '../config/utils/envVars';
 import config from '../config';
 import schema from './graphql/schema/schema';
 
@@ -58,6 +62,25 @@ app.use(config('bundles.client.webPath'), clientBundle);
 // Note: these will be served off the root (i.e. '/') of our application.
 app.use(express.static(pathResolve(appRootDir.get(), config('publicAssetsPath'))));
 
+/**
+ * Connect to MongoDB.
+ */
+mongoose.Promise = global.Promise;
+mongoose.connect(`mongodb://${EnvVars.string('MONGODB_URI')}`, { useMongoClient: true });
+mongoose.connection
+  .on('error', (err) => {
+    console.error(err);
+    console.log(
+      '%s MongoDB connection error. Please make sure MongoDB is running.',
+      chalk.red('✗'),
+    );
+    process.exit();
+  })
+  .once('open', () => console.log('%s Connected to Mongodb instance.', chalk.green('✔')));
+
+/**
+ * Connect to GraphQL.
+ */
 app.use(
   '/graphql',
   graphqlHTTP({
@@ -75,7 +98,7 @@ app.use(...errorHandlers);
 
 // Create an http listener for our express app.
 const listener = app.listen(config('port'), () =>
-  console.log(`Server listening on port ${config('port')}`),
+  console.log(`%s Server listening on port ${config('port')}`, chalk.green('✔')),
 );
 
 // We export the listener as it will be handy for our development hot reloader,
