@@ -112,7 +112,7 @@ const values = {
   includeSourceMapsForOptimisedClientBundle: false,
 
   // These extensions are tried when resolving src files for our bundles..
-  bundleSrcTypes: ['js', 'jsx', 'json', 'ts', 'tsx'],
+  bundleSrcTypes: ['js', 'jsx', 'json'],
 
   // Additional asset types to be supported for our bundles.
   // i.e. you can import the following file types within your source and the
@@ -221,7 +221,7 @@ const values = {
 
     server: {
       // Src entry file.
-      srcEntryFile: './server/index.ts',
+      srcEntryFile: './server/index.js',
 
       // Src paths.
       srcPaths: ['./server', './shared', './config'],
